@@ -26,6 +26,7 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
         private SelectionUIBinding<string, SelectionSuiteDemoData> _selectionBinding;
         private ObjectSelectionCoreStateBridge<string, SelectionSuiteDemoData> _objectCoreBridge;
         private SelectionSuiteDemoHighlighter _highlighter;
+        private ObjectSelectionVisualController<string> _worldVisualController;
         private SelectionSuiteDemoRaycastController _raycastController;
 
         private RectTransform _itemsParent;
@@ -81,6 +82,11 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
                 _objectCoreBridge.Dispose();
             }
 
+            if (_worldVisualController != null)
+            {
+                _worldVisualController.Dispose();
+            }
+
             if (_selectionBinding != null)
             {
                 _selectionBinding.Dispose();
@@ -110,11 +116,6 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
 
         private void OnObjectSelectionChanged(object sender, JorisHoef.ObjectSelection.SelectionChangedEventArgs<string> args)
         {
-            if (_highlighter != null)
-            {
-                _highlighter.OnSelectionChanged(args);
-            }
-
             string previous = args.HadPreviousSelection ? args.PreviousKey : "(none)";
             string current = args.HasSelection ? args.CurrentKey : "(none)";
             _lastObjectEvent = "ObjectSelection: " + previous + " -> " + current + " (" + args.Reason + ")";
@@ -137,7 +138,11 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
             _uiContainer = new GenericUIContainer<SelectionSuiteDemoData, string>(
                 _itemsParent,
                 _itemPrefab,
-                item => item.Id);
+                item => item.Id,
+                new GraphicTintGenericUIItemVisual<string, SelectionSuiteDemoData>(
+                    new Color(0.18f, 0.19f, 0.20f, 1f),
+                    new Color(0.16f, 0.42f, 0.95f, 1f),
+                    new Color(0.23f, 0.26f, 0.30f, 1f)));
 
             _repositoryBinding = new RepositoryUIBinding<string, SelectionSuiteDemoData>(
                 _repository,
@@ -186,7 +191,7 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
 
         private static void EnsureLight()
         {
-            if (FindObjectOfType<Light>() != null)
+            if (FindSceneObject<Light>() != null)
             {
                 return;
             }
@@ -225,7 +230,7 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
         {
             EnsureEventSystem();
 
-            Canvas canvas = FindObjectOfType<Canvas>();
+            Canvas canvas = FindSceneObject<Canvas>();
             if (canvas == null)
             {
                 GameObject canvasObject = new GameObject(
@@ -296,7 +301,7 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
 
         private static void EnsureEventSystem()
         {
-            if (FindObjectOfType<EventSystem>() != null)
+            if (FindSceneObject<EventSystem>() != null)
             {
                 return;
             }
@@ -326,7 +331,6 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
             sampleItem.Configure(
                 this,
                 label,
-                item.GetComponent<Image>(),
                 button);
 
             return item.gameObject;
@@ -441,6 +445,8 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
             {
                 _highlighter = gameObject.AddComponent<SelectionSuiteDemoHighlighter>();
             }
+
+            _worldVisualController = new ObjectSelectionVisualController<string>(_objectSelection, _highlighter);
         }
 
         private void EnsureRaycastController()
@@ -496,6 +502,15 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
             }
 
             return char.ToUpperInvariant(key[0]) + key.Substring(1);
+        }
+
+        private static T FindSceneObject<T>() where T : Object
+        {
+#if UNITY_2023_1_OR_NEWER
+            return FindFirstObjectByType<T>();
+#else
+            return FindObjectOfType<T>();
+#endif
         }
     }
 }

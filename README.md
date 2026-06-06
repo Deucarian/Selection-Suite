@@ -8,6 +8,7 @@ This package is a bundle, not a new selection system. It intentionally avoids ru
 - CoreState owns application and data selection.
 - GenericUIItems owns data-driven UI item rendering.
 - The bridge packages synchronize both sides through shared keys.
+- Visual strategies are optional and decide how selected, normal, or hovered states look.
 
 ## Package ID
 
@@ -79,6 +80,8 @@ The demo uses four stable string IDs:
 - `cylinder`
 
 The sample creates a small UGUI list, a CoreState repository with matching data items, current and previous selection displays, and a simple world-object highlight.
+
+The demo keeps state and visuals separate. ObjectSelection and CoreState decide what key is selected, while ObjectSelection and GenericUIItems visual strategies decide how selected world objects and UI rows look. More advanced visuals such as DOTween, custom tween packages, outline renderers, shader effects, Animator states, or VFX can be layered on later without changing the selection stack.
 
 ## Runtime
 

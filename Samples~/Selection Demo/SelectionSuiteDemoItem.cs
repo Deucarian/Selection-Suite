@@ -1,18 +1,14 @@
 using JorisHoef.GenericUIItems;
-using JorisHoef.GenericUIItems.CoreState;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
 {
-    public sealed class SelectionSuiteDemoItem : GenericItem<SelectionSuiteDemoData>, ISelectableUIItem
+    public sealed class SelectionSuiteDemoItem : GenericItem<SelectionSuiteDemoData>
     {
         [SerializeField] private SelectionSuiteDemo owner;
         [SerializeField] private Text label;
-        [SerializeField] private Image background;
         [SerializeField] private Button button;
-
-        private bool _isSelected;
 
         private void Awake()
         {
@@ -31,7 +27,6 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
         public void Configure(
             SelectionSuiteDemo demoOwner,
             Text itemLabel,
-            Image itemBackground,
             Button itemButton)
         {
             owner = demoOwner;
@@ -41,17 +36,10 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
                 label = itemLabel;
             }
 
-            if (itemBackground != null)
-            {
-                background = itemBackground;
-            }
-
             if (itemButton != null)
             {
                 button = itemButton;
             }
-
-            ApplyVisualState();
         }
 
         public override void SetData(SelectionSuiteDemoData data)
@@ -63,12 +51,6 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
             {
                 label.text = data != null ? data.Label + " (" + data.Id + ")" : string.Empty;
             }
-        }
-
-        public void SetSelected(bool selected)
-        {
-            _isSelected = selected;
-            ApplyVisualState();
         }
 
         private void OnClicked()
@@ -86,11 +68,6 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
                 button = GetComponent<Button>();
             }
 
-            if (background == null)
-            {
-                background = GetComponent<Image>();
-            }
-
             if (label == null)
             {
                 label = GetComponentInChildren<Text>();
@@ -106,21 +83,6 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
 
             button.onClick.RemoveListener(OnClicked);
             button.onClick.AddListener(OnClicked);
-        }
-
-        private void ApplyVisualState()
-        {
-            if (background != null)
-            {
-                background.color = _isSelected
-                    ? new Color(0.16f, 0.42f, 0.95f, 1f)
-                    : new Color(0.18f, 0.19f, 0.20f, 1f);
-            }
-
-            if (label != null)
-            {
-                label.color = Color.white;
-            }
         }
     }
 }
