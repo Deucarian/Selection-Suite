@@ -1,0 +1,20 @@
+{
+  "name": "Deucarian.SelectionSuite.Samples.SelectionDemo",
+  "rootNamespace": "Deucarian.SelectionSuite.Samples.SelectionDemo",
+  "references": [
+    "Deucarian.CoreState",
+    "Deucarian.UIBinding",
+    "Deucarian.UIBinding.CoreStateBridge",
+    "Deucarian.ObjectSelection",
+    "Deucarian.ObjectSelection.CoreStateBridge"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

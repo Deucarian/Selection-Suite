@@ -2,11 +2,11 @@
 
 ## Scope
 
-JorisHoef Selection Suite is a curated UPM bundle. Keep runtime behavior in the underlying packages:
+Deucarian Selection Suite is a curated UPM bundle. Keep runtime behavior in the underlying packages:
 
 - Core State for repositories and data selection.
 - Object Selection for world-object selection.
-- Generic UI Items for data-driven UI item rendering.
+- UI Binding for data-driven UI item rendering.
 - Bridge packages for synchronization through shared keys.
 
 Do not add a 3-way bridge to this package. Add runtime behavior to the package that owns that behavior, or to an explicit bridge package when two packages need integration.
@@ -22,7 +22,7 @@ pwsh ./Tools/Validate-Package.ps1
 For Unity validation, use a separate test project that references this package by file path:
 
 ```json
-"com.jorishoef.selection-suite": "file:C:/Repositories/JorisHoef.Selection-Suite"
+"com.deucarian.selection-suite": "file:C:/Repositories/Deucarian.Selection-Suite"
 ```
 
 ## Pull Requests

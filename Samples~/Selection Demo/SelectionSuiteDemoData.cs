@@ -1,6 +1,6 @@
-using JorisHoef.Core.State;
+using Deucarian.CoreState;
 
-namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
+namespace Deucarian.SelectionSuite.Samples.SelectionDemo
 {
     public sealed class SelectionSuiteDemoData : IIdentifiable<string>
     {

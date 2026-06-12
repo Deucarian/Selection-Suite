@@ -1,8 +1,8 @@
-using JorisHoef.ObjectSelection;
+using Deucarian.ObjectSelection;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
+namespace Deucarian.SelectionSuite.Samples.SelectionDemo
 {
     public sealed class SelectionSuiteDemoHighlighter : MonoBehaviour, IObjectSelectionVisual<string>
     {

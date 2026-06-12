@@ -1,14 +1,14 @@
 using System.Collections.Generic;
-using JorisHoef.Core.State;
-using JorisHoef.GenericUIItems;
-using JorisHoef.GenericUIItems.CoreState;
-using JorisHoef.ObjectSelection;
-using JorisHoef.ObjectSelection.CoreState;
+using Deucarian.CoreState;
+using Deucarian.UIBinding;
+using Deucarian.UIBinding.CoreStateBridge;
+using Deucarian.ObjectSelection;
+using Deucarian.ObjectSelection.CoreStateBridge;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
+namespace Deucarian.SelectionSuite.Samples.SelectionDemo
 {
     public sealed class SelectionSuiteDemo : MonoBehaviour
     {
@@ -21,7 +21,7 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
         private ObjectSelectionService<string> _objectSelection;
         private Repository<string, SelectionSuiteDemoData> _repository;
         private SelectionService<string, SelectionSuiteDemoData> _coreSelection;
-        private GenericUIContainer<SelectionSuiteDemoData, string> _uiContainer;
+        private UIBindingContainer<SelectionSuiteDemoData, string> _uiContainer;
         private RepositoryUIBinding<string, SelectionSuiteDemoData> _repositoryBinding;
         private SelectionUIBinding<string, SelectionSuiteDemoData> _selectionBinding;
         private ObjectSelectionCoreStateBridge<string, SelectionSuiteDemoData> _objectCoreBridge;
@@ -114,7 +114,7 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
             }
         }
 
-        private void OnObjectSelectionChanged(object sender, JorisHoef.ObjectSelection.SelectionChangedEventArgs<string> args)
+        private void OnObjectSelectionChanged(object sender, Deucarian.ObjectSelection.SelectionChangedEventArgs<string> args)
         {
             string previous = args.HadPreviousSelection ? args.PreviousKey : "(none)";
             string current = args.HasSelection ? args.CurrentKey : "(none)";
@@ -124,7 +124,7 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
 
         private void OnCoreSelectionChanged(
             object sender,
-            JorisHoef.Core.State.SelectionChangedEventArgs<string, SelectionSuiteDemoData> args)
+            Deucarian.CoreState.SelectionChangedEventArgs<string, SelectionSuiteDemoData> args)
         {
             _previousKey = args.HadPreviousSelection ? args.PreviousKey : "(none)";
 
@@ -135,7 +135,7 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
 
         private void BindUiToCoreState()
         {
-            _uiContainer = new GenericUIContainer<SelectionSuiteDemoData, string>(
+            _uiContainer = new UIBindingContainer<SelectionSuiteDemoData, string>(
                 _itemsParent,
                 _itemPrefab,
                 item => item.Id);
@@ -260,7 +260,7 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
             rootLayout.childForceExpandHeight = false;
             rootLayout.childForceExpandWidth = true;
 
-            Text title = CreateText("Title", root, "JorisHoef Selection Suite", 18, TextAnchor.MiddleLeft);
+            Text title = CreateText("Title", root, "Deucarian Selection Suite", 18, TextAnchor.MiddleLeft);
             title.fontStyle = FontStyle.Bold;
             AddLayoutElement(title.gameObject, 28f);
 
@@ -270,7 +270,7 @@ namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
             _previousText = CreateText("Previous Selection", root, "Previous: (none)", 15, TextAnchor.MiddleLeft);
             AddLayoutElement(_previousText.gameObject, 24f);
 
-            _itemsParent = CreatePanel("Generic UI Items List", root, new Color(0.12f, 0.13f, 0.14f, 1f));
+            _itemsParent = CreatePanel("UI Binding List", root, new Color(0.12f, 0.13f, 0.14f, 1f));
             AddLayoutElement(_itemsParent.gameObject, 190f);
 
             VerticalLayoutGroup itemsLayout = _itemsParent.gameObject.AddComponent<VerticalLayoutGroup>();

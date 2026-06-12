@@ -1,9 +1,9 @@
-using JorisHoef.GenericUIItems;
-using JorisHoef.GenericUIItems.CoreState;
+using Deucarian.UIBinding;
+using Deucarian.UIBinding.CoreStateBridge;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
+namespace Deucarian.SelectionSuite.Samples.SelectionDemo
 {
     public sealed class SelectionSuiteDemoItem : GenericItem<SelectionSuiteDemoData>, ISelectableUIItem
     {

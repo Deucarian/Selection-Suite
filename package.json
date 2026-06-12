@@ -1,11 +1,11 @@
 {
-  "name": "com.jorishoef.selection-suite",
+  "name": "com.deucarian.selection-suite",
   "version": "1.0.0",
-  "displayName": "JorisHoef Selection Suite",
-  "description": "Curated suite package that installs the complete reusable selection stack: Core State, Generic UI Items, Object Selection, and their Core State bridges.",
+  "displayName": "Deucarian Selection Suite",
+  "description": "Curated suite package that installs the complete reusable selection stack: Core State, UI Binding, Object Selection, and their Core State bridges.",
   "unity": "2021.3",
   "author": {
-    "name": "JorisHoef"
+    "name": "Deucarian"
   },
   "keywords": [
     "selection",
@@ -16,16 +16,16 @@
     "object"
   ],
   "dependencies": {
-    "com.jorishoef.core.state": "1.0.0",
-    "com.jorishoef.generic-ui-items": "1.0.0",
-    "com.jorishoef.object-selection": "1.0.0",
-    "com.jorishoef.generic-ui-items.core-state-bridge": "1.0.0",
-    "com.jorishoef.objectselection-corestate-bridge": "1.0.0"
+    "com.deucarian.object-selection.core-state-bridge": "1.0.0",
+    "com.deucarian.core-state": "1.0.0",
+    "com.deucarian.ui-binding.core-state-bridge": "1.0.0",
+    "com.deucarian.ui-binding": "1.0.0",
+    "com.deucarian.object-selection": "1.0.0"
   },
   "samples": [
     {
       "displayName": "Selection Demo",
-      "description": "Full selection-stack demo with world-object selection, Core State, Generic UI Items, and both Core State bridge packages.",
+      "description": "Full selection-stack demo with world-object selection, Core State, UI Binding, and both Core State bridge packages.",
       "path": "Samples~/Selection Demo"
     }
   ]

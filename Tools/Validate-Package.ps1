@@ -18,7 +18,7 @@ $requiredFiles = @(
     "CONTRIBUTING.md",
     "Documentation~/index.md",
     "$samplePath/README.md",
-    "$samplePath/JorisHoef.SelectionSuite.Samples.SelectionDemo.asmdef",
+    "$samplePath/Deucarian.SelectionSuite.Samples.SelectionDemo.asmdef",
     "$samplePath/SelectionSuiteDemo.unity",
     "$samplePath/SelectionSuiteDemo.cs",
     "$samplePath/SelectionSuiteDemoData.cs",
@@ -42,11 +42,11 @@ foreach ($file in $requiredFiles) {
 }
 
 $package = Get-Content -LiteralPath (Join-Path $root "package.json") -Raw | ConvertFrom-Json
-if ($package.name -ne "com.jorishoef.selection-suite") {
+if ($package.name -ne "com.deucarian.selection-suite") {
     throw "Unexpected package name: $($package.name)"
 }
 
-if ($package.displayName -ne "JorisHoef Selection Suite") {
+if ($package.displayName -ne "Deucarian Selection Suite") {
     throw "Unexpected package display name: $($package.displayName)"
 }
 
@@ -55,11 +55,11 @@ if ($package.version -notmatch "^\d+\.\d+\.\d+$") {
 }
 
 $expectedDependencies = @{
-    "com.jorishoef.core.state" = "1.0.0"
-    "com.jorishoef.generic-ui-items" = "1.0.0"
-    "com.jorishoef.object-selection" = "1.0.0"
-    "com.jorishoef.generic-ui-items.core-state-bridge" = "1.0.0"
-    "com.jorishoef.objectselection-corestate-bridge" = "1.0.0"
+    "com.deucarian.core-state" = "1.0.0"
+    "com.deucarian.ui-binding" = "1.0.0"
+    "com.deucarian.object-selection" = "1.0.0"
+    "com.deucarian.ui-binding.core-state-bridge" = "1.0.0"
+    "com.deucarian.object-selection.core-state-bridge" = "1.0.0"
 }
 
 $dependencies = $package.dependencies.PSObject.Properties
@@ -86,13 +86,13 @@ if ($package.samples[0].path -ne $samplePath) {
     throw "Unexpected sample path: $($package.samples[0].path)"
 }
 
-$sampleAsmdef = Get-Content -LiteralPath (Join-Path $root "$samplePath/JorisHoef.SelectionSuite.Samples.SelectionDemo.asmdef") -Raw | ConvertFrom-Json
+$sampleAsmdef = Get-Content -LiteralPath (Join-Path $root "$samplePath/Deucarian.SelectionSuite.Samples.SelectionDemo.asmdef") -Raw | ConvertFrom-Json
 $expectedReferences = @(
-    "JorisHoef.Core.State",
-    "GenericUIItems",
-    "GenericUIItems.CoreState.Bridge",
-    "JorisHoef.ObjectSelection",
-    "JorisHoef.ObjectSelection.CoreState"
+    "Deucarian.CoreState",
+    "Deucarian.UIBinding",
+    "Deucarian.UIBinding.CoreStateBridge",
+    "Deucarian.ObjectSelection",
+    "Deucarian.ObjectSelection.CoreStateBridge"
 )
 
 foreach ($reference in $expectedReferences) {
@@ -110,7 +110,7 @@ if (Test-Path -LiteralPath $runtimePath -PathType Container) {
 }
 
 $scene = Get-Content -LiteralPath (Join-Path $root "$samplePath/SelectionSuiteDemo.unity") -Raw
-if ($scene -notmatch "m_AssemblyName: JorisHoef\.SelectionSuite\.Samples\.SelectionDemo") {
+if ($scene -notmatch "m_AssemblyName: Deucarian\.SelectionSuite\.Samples\.SelectionDemo") {
     throw "Sample scene does not reference the Selection Demo sample assembly."
 }
 
@@ -128,4 +128,4 @@ if ($generatedArtifacts.Count -gt 0) {
     throw "Generated artifacts are present in the package repository."
 }
 
-Write-Host "JorisHoef Selection Suite package validation passed."
+Write-Host "Deucarian Selection Suite package validation passed."

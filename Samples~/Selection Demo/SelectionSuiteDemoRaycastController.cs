@@ -1,6 +1,6 @@
-using JorisHoef.ObjectSelection;
+using Deucarian.ObjectSelection;
 
-namespace JorisHoef.SelectionSuite.Samples.SelectionDemo
+namespace Deucarian.SelectionSuite.Samples.SelectionDemo
 {
     public sealed class SelectionSuiteDemoRaycastController : RaycastSelectionController<string>
     {

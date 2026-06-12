@@ -1,19 +1,19 @@
-# JorisHoef Selection Suite
+# Deucarian Selection Suite
 
-JorisHoef Selection Suite installs the complete reusable selection stack in one curated UPM package.
+Deucarian Selection Suite installs the complete reusable selection stack in one curated UPM package.
 
 This package is a bundle, not a new selection system. It intentionally avoids runtime code and lets the underlying packages keep their responsibilities:
 
 - ObjectSelection owns world-object selection.
 - CoreState owns application and data selection.
-- GenericUIItems owns data-driven UI item rendering.
+- UIBinding owns data-driven UI item rendering.
 - The bridge packages synchronize both sides through shared keys.
 - Visual strategies are optional and decide how selected, normal, or hovered states look.
 
 ## Package ID
 
 ```text
-com.jorishoef.selection-suite
+com.deucarian.selection-suite
 ```
 
 ## Dependency Graph
@@ -28,24 +28,24 @@ ObjectSelection-CoreState Bridge
 CoreState
   |
   v
-GenericUIItems-CoreState Bridge
+UIBinding-CoreState Bridge
   |
   v
-GenericUIItems
+UIBinding
 ```
 
 CoreState remains the source of truth for application/data selection. The suite does not add a 3-way bridge.
 
 ## Installation
 
-Install through the JorisHoef Package Installer by choosing `Selection Suite` in the `Suites` category.
+Install through the Deucarian Package Installer by choosing `Selection Suite` in the `Suites` category.
 
 You can also add the suite through Unity Package Manager with a Git URL:
 
 ```json
 {
   "dependencies": {
-    "com.jorishoef.selection-suite": "https://github.com/JorisHoef/Selection-Suite.git#main"
+    "com.deucarian.selection-suite": "https://github.com/Deucarian/Selection-Suite.git#main"
   }
 }
 ```
@@ -62,12 +62,12 @@ The sample scene demonstrates both directions:
 Click world object
 -> ObjectSelection selects key
 -> ObjectSelection-CoreState bridge updates CoreState
--> GenericUIItems-CoreState bridge updates UI selection
+-> UIBinding-CoreState bridge updates UI selection
 ```
 
 ```text
 Click/select UI item
--> GenericUIItems/CoreState selection changes
+-> UIBinding/CoreState selection changes
 -> ObjectSelection-CoreState bridge updates ObjectSelection
 -> world object highlights
 ```
