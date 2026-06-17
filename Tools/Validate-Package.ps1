@@ -56,10 +56,10 @@ if ($package.version -notmatch "^\d+\.\d+\.\d+$") {
 
 $expectedDependencies = @{
     "com.deucarian.core-state" = "1.0.0"
-    "com.deucarian.ui-binding" = "1.0.0"
-    "com.deucarian.object-selection" = "1.0.0"
-    "com.deucarian.ui-binding.core-state-bridge" = "1.0.0"
-    "com.deucarian.object-selection.core-state-bridge" = "1.0.0"
+    "com.deucarian.ui-binding" = "1.0.1"
+    "com.deucarian.object-selection" = "1.0.2"
+    "com.deucarian.ui-binding.core-state-integration" = "1.0.1"
+    "com.deucarian.object-selection.core-state-integration" = "1.0.2"
 }
 
 $dependencies = $package.dependencies.PSObject.Properties
@@ -90,9 +90,9 @@ $sampleAsmdef = Get-Content -LiteralPath (Join-Path $root "$samplePath/Deucarian
 $expectedReferences = @(
     "Deucarian.CoreState",
     "Deucarian.UIBinding",
-    "Deucarian.UIBinding.CoreStateBridge",
+    "Deucarian.UIBinding.CoreStateIntegration",
     "Deucarian.ObjectSelection",
-    "Deucarian.ObjectSelection.CoreStateBridge"
+    "Deucarian.ObjectSelection.CoreStateIntegration"
 )
 
 foreach ($reference in $expectedReferences) {

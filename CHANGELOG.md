@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1 - 2026-06-17
+
+- Updated suite dependencies, docs, samples, and validation tooling to use Integration package IDs instead of Bridge package IDs.
+- Migration: replace old suite manifest references to Core State bridge packages with `com.deucarian.ui-binding.core-state-integration` and `com.deucarian.object-selection.core-state-integration`.
+
 ## Unreleased
 
 - Updated the Selection Demo sample to use the stable three-argument `GenericUIContainer<T, TKey>` constructor and sample-only UI row tinting.
@@ -10,5 +15,5 @@
 ## 1.0.0 - 2026-06-06
 
 - Added the initial JorisHoef Selection Suite package.
-- Declared dependencies on Core State, Generic UI Items, Object Selection, and both Core State bridge packages.
+- Declared dependencies on Core State, Generic UI Items, Object Selection, and both Core State integration packages.
 - Added the `Selection Demo` sample scene for the complete reusable selection stack.

@@ -8,13 +8,13 @@ It does not introduce a new runtime selection API. The package graph stays expli
 ObjectSelection
   |
   v
-ObjectSelection-CoreState Bridge
+ObjectSelection-CoreState Integration
   |
   v
 CoreState
   |
   v
-UIBinding-CoreState Bridge
+UIBinding-CoreState Integration
   |
   v
 UIBinding
@@ -25,8 +25,8 @@ UIBinding
 - ObjectSelection owns world-object selection state, raycast selection, and world highlighting hooks.
 - CoreState owns repositories and application/data selection state.
 - UIBinding owns rendering data collections into UI items.
-- ObjectSelection-CoreState Bridge synchronizes world selection with CoreState selection.
-- UIBinding-CoreState Bridge synchronizes CoreState repositories and selection into UIBinding containers.
+- ObjectSelection-CoreState Integration synchronizes world selection with CoreState selection.
+- UIBinding-CoreState Integration synchronizes CoreState repositories and selection into UIBinding containers.
 - Optional visual strategies decide how selected, normal, or hovered states look. They do not own selection/data state.
 
 ## Samples

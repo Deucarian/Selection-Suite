@@ -7,9 +7,9 @@ Deucarian Selection Suite is a curated UPM bundle. Keep runtime behavior in the 
 - Core State for repositories and data selection.
 - Object Selection for world-object selection.
 - UI Binding for data-driven UI item rendering.
-- Bridge packages for synchronization through shared keys.
+- Integration packages for synchronization through shared keys.
 
-Do not add a 3-way bridge to this package. Add runtime behavior to the package that owns that behavior, or to an explicit bridge package when two packages need integration.
+Do not add a 3-way integration to this package. Add runtime behavior to the package that owns that behavior, or to an explicit integration package when two packages need integration.
 
 ## Local Validation
 

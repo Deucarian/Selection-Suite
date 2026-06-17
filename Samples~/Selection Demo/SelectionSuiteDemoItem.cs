@@ -1,5 +1,5 @@
 using Deucarian.UIBinding;
-using Deucarian.UIBinding.CoreStateBridge;
+using Deucarian.UIBinding.CoreStateIntegration;
 using UnityEngine;
 using UnityEngine.UI;
 

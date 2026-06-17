@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Deucarian.CoreState;
 using Deucarian.UIBinding;
-using Deucarian.UIBinding.CoreStateBridge;
+using Deucarian.UIBinding.CoreStateIntegration;
 using Deucarian.ObjectSelection;
-using Deucarian.ObjectSelection.CoreStateBridge;
+using Deucarian.ObjectSelection.CoreStateIntegration;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -24,7 +24,7 @@ namespace Deucarian.SelectionSuite.Samples.SelectionDemo
         private UIBindingContainer<SelectionSuiteDemoData, string> _uiContainer;
         private RepositoryUIBinding<string, SelectionSuiteDemoData> _repositoryBinding;
         private SelectionUIBinding<string, SelectionSuiteDemoData> _selectionBinding;
-        private ObjectSelectionCoreStateBridge<string, SelectionSuiteDemoData> _objectCoreBridge;
+        private ObjectSelectionCoreStateIntegration<string, SelectionSuiteDemoData> _objectCoreIntegration;
         private SelectionSuiteDemoHighlighter _highlighter;
         private ObjectSelectionVisualController<string> _worldVisualController;
         private SelectionSuiteDemoRaycastController _raycastController;
@@ -57,7 +57,7 @@ namespace Deucarian.SelectionSuite.Samples.SelectionDemo
             _objectSelection.SelectionChanged += OnObjectSelectionChanged;
             _coreSelection.SelectionChanged += OnCoreSelectionChanged;
 
-            _objectCoreBridge = new ObjectSelectionCoreStateBridge<string, SelectionSuiteDemoData>(
+            _objectCoreIntegration = new ObjectSelectionCoreStateIntegration<string, SelectionSuiteDemoData>(
                 _objectSelection,
                 _coreSelection);
 
@@ -77,9 +77,9 @@ namespace Deucarian.SelectionSuite.Samples.SelectionDemo
                 _coreSelection.SelectionChanged -= OnCoreSelectionChanged;
             }
 
-            if (_objectCoreBridge != null)
+            if (_objectCoreIntegration != null)
             {
-                _objectCoreBridge.Dispose();
+                _objectCoreIntegration.Dispose();
             }
 
             if (_worldVisualController != null)

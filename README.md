@@ -7,7 +7,7 @@ This package is a bundle, not a new selection system. It intentionally avoids ru
 - ObjectSelection owns world-object selection.
 - CoreState owns application and data selection.
 - UIBinding owns data-driven UI item rendering.
-- The bridge packages synchronize both sides through shared keys.
+- The integration packages synchronize both sides through shared keys.
 - Visual strategies are optional and decide how selected, normal, or hovered states look.
 
 ## Package ID
@@ -22,19 +22,19 @@ com.deucarian.selection-suite
 ObjectSelection
   |
   v
-ObjectSelection-CoreState Bridge
+ObjectSelection-CoreState Integration
   |
   v
 CoreState
   |
   v
-UIBinding-CoreState Bridge
+UIBinding-CoreState Integration
   |
   v
 UIBinding
 ```
 
-CoreState remains the source of truth for application/data selection. The suite does not add a 3-way bridge.
+CoreState remains the source of truth for application/data selection. The suite does not add a 3-way integration.
 
 ## Installation
 
@@ -61,14 +61,14 @@ The sample scene demonstrates both directions:
 ```text
 Click world object
 -> ObjectSelection selects key
--> ObjectSelection-CoreState bridge updates CoreState
--> UIBinding-CoreState bridge updates UI selection
+-> ObjectSelection-CoreState integration updates CoreState
+-> UIBinding-CoreState integration updates UI selection
 ```
 
 ```text
 Click/select UI item
 -> UIBinding/CoreState selection changes
--> ObjectSelection-CoreState bridge updates ObjectSelection
+-> ObjectSelection-CoreState integration updates ObjectSelection
 -> world object highlights
 ```
 

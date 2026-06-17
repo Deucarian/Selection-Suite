@@ -4,9 +4,9 @@
   "references": [
     "Deucarian.CoreState",
     "Deucarian.UIBinding",
-    "Deucarian.UIBinding.CoreStateBridge",
+    "Deucarian.UIBinding.CoreStateIntegration",
     "Deucarian.ObjectSelection",
-    "Deucarian.ObjectSelection.CoreStateBridge"
+    "Deucarian.ObjectSelection.CoreStateIntegration"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

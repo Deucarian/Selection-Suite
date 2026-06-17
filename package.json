@@ -1,8 +1,8 @@
 {
   "name": "com.deucarian.selection-suite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Deucarian Selection Suite",
-  "description": "Curated suite package that installs the complete reusable selection stack: Core State, UI Binding, Object Selection, and their Core State bridges.",
+  "description": "Curated suite package that installs the complete reusable selection stack: Core State, UI Binding, Object Selection, and their Core State integrations.",
   "unity": "2021.3",
   "author": {
     "name": "Deucarian"
@@ -16,16 +16,16 @@
     "object"
   ],
   "dependencies": {
-    "com.deucarian.object-selection.core-state-bridge": "1.0.0",
+    "com.deucarian.object-selection.core-state-integration": "1.0.2",
     "com.deucarian.core-state": "1.0.0",
-    "com.deucarian.ui-binding.core-state-bridge": "1.0.0",
-    "com.deucarian.ui-binding": "1.0.0",
-    "com.deucarian.object-selection": "1.0.0"
+    "com.deucarian.ui-binding.core-state-integration": "1.0.1",
+    "com.deucarian.ui-binding": "1.0.1",
+    "com.deucarian.object-selection": "1.0.2"
   },
   "samples": [
     {
       "displayName": "Selection Demo",
-      "description": "Full selection-stack demo with world-object selection, Core State, UI Binding, and both Core State bridge packages.",
+      "description": "Full selection-stack demo with world-object selection, Core State, UI Binding, and both Core State integration packages.",
       "path": "Samples~/Selection Demo"
     }
   ]
