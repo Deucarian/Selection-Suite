@@ -1,0 +1,22 @@
+{
+  "packageId": "com.deucarian.selection-suite",
+  "displayName": "Deucarian Selection Suite",
+  "ownedCapabilities": [],
+  "runtimeAssemblies": [],
+  "editorAssemblies": [],
+  "sampleAssemblies": [
+    "Deucarian.SelectionSuite.Samples.SelectionDemo"
+  ],
+  "testAssemblies": [],
+  "requiredDependencies": [
+    "com.deucarian.core-state",
+    "com.deucarian.object-selection",
+    "com.deucarian.object-selection.core-state-integration",
+    "com.deucarian.ui-binding",
+    "com.deucarian.ui-binding.core-state-integration"
+  ],
+  "optionalVersionDefinedDependencies": [],
+  "allowedDirectDebugCalls": [],
+  "allowedDirectUnityObjectLifetimeCalls": [],
+  "expectedSamplesRoot": "Samples~"
+}
