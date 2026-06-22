@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2 - 2026-06-22
+
+- Updated exact UI Binding stack dependencies to `com.deucarian.ui-binding` `1.1.0` and `com.deucarian.ui-binding.core-state-integration` `1.0.2`.
+
 ## 1.0.1 - 2026-06-17
 
 - Updated suite dependencies, docs, samples, and validation tooling to use Integration package IDs instead of Bridge package IDs.
