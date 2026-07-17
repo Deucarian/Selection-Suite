@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4 - 2026-07-17
+
+- Aligned the composition package with the suite contract and synchronized every member dependency to the coordinated portfolio versions.
+
 ## 1.0.3 - 2026-06-22
 
 - Updated exact selection stack dependencies for the accepted stable release line.
