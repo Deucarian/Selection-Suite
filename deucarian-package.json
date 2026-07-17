@@ -1,6 +1,7 @@
 {
   "packageId": "com.deucarian.selection-suite",
   "displayName": "Deucarian Selection Suite",
+  "samplePolicy": "composition",
   "ownedCapabilities": [],
   "runtimeAssemblies": [],
   "editorAssemblies": [],
